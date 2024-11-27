@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Welcome</mat-card-title>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+   
+    <h4>Quick Access below :</h4>
+    <mat-grid-list cols="2" rowHeight="100px">
+     
+      <mat-grid-tile>
+        <button mat-fab color="primary" matTooltip="Messages" [routerLink]="['/pages/messages']">
+          <mat-icon>message</mat-icon>
+        </button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-fab color="primary" matTooltip="Partners" [routerLink]="['/pages/partners']">
+          <mat-icon>account_box</mat-icon>
+        </button>
+      </mat-grid-tile>
+      
+    </mat-grid-list>
+  </mat-card-content>
+</mat-card>

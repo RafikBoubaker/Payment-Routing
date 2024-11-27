@@ -1,0 +1,70 @@
+<div class="modal-dialog">
+  <h1 mat-dialog-title>{{ isEditMode ? 'Modifier' : 'Ajouter' }} un Partenaire</h1>
+  <div mat-dialog-content>
+    <form [formGroup]="partnerForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Alias</mat-label>
+        <input matInput formControlName="alias" placeholder="Entrez l'alias" />
+        <mat-error *ngIf="partnerForm.get('alias')?.hasError('required')">
+          L'alias est requis
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Type</mat-label>
+        <input matInput formControlName="type" placeholder="Entrez le type" />
+        <mat-error *ngIf="partnerForm.get('type')?.hasError('required')">
+          Le type est requis
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Direction</mat-label>
+        <mat-select formControlName="direction">
+          <mat-option value="INBOUND">INBOUND</mat-option>
+          <mat-option value="OUTBOUND">OUTBOUND</mat-option>
+        </mat-select>
+        <mat-error *ngIf="partnerForm.get('direction')?.hasError('required')">
+          La direction est requise
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Application</mat-label>
+        <input matInput formControlName="application" placeholder="Entrez l'application" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Type de Flux Traité</mat-label>
+        <mat-select formControlName="processedFlowType">
+          <mat-option value="MESSAGE">MESSAGE</mat-option>
+          <mat-option value="ALERTING">ALERTING</mat-option>
+          <mat-option value="NOTIFICATION">NOTIFICATION</mat-option>
+        </mat-select>
+        <mat-error *ngIf="partnerForm.get('processedFlowType')?.hasError('required')">
+          Le type de flux est requis
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" placeholder="Entrez une description"></textarea>
+        <mat-error *ngIf="partnerForm.get('description')?.hasError('required')">
+          La description est requise
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </div>
+  <div mat-dialog-actions style="text-align: end">
+    <button mat-raised-button mat-dialog-close>Annuler</button>
+    <button
+      style="margin-left: 8px"
+      mat-raised-button
+      color="primary"
+      [disabled]="partnerForm.invalid"
+      (click)="savePartner()"
+    >
+      Enregistrer
+    </button>
+  </div>
+</div>

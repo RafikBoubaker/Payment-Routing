@@ -1,0 +1,29 @@
+<div mat-dialog-content>
+    <h2>Détails du message</h2>
+    <form>
+      <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 16px;">
+        <mat-label>ID</mat-label>
+        <input matInput [value]="data.id" readonly />
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 16px;">
+        <mat-label>Content</mat-label>
+        <textarea matInput [value]="data.content" readonly></textarea>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 16px;">
+        <mat-label>Queue Name</mat-label>
+        <input matInput [value]="data.queueName" readonly />
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Received At</mat-label>
+        <input matInput [value]="data.receivedAt | date: 'medium'" readonly />
+      </mat-form-field>
+    </form>
+  </div>
+  
+  <div mat-dialog-actions style="text-align: right;">
+    <button mat-raised-button color="primary" mat-dialog-close>Fermer</button>
+  </div>
+  

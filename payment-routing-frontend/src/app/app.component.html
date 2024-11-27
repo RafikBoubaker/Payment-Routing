@@ -1,0 +1,8 @@
+<div>
+  <div [hidden]="!isLoading">
+    <div class="loading"><img src="assets/img/loading.gif" alt="" /></div>
+  </div>
+  <div [hidden]="isLoading">
+    <router-outlet></router-outlet>
+  </div>
+</div>
