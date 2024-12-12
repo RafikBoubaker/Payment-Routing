@@ -84,7 +84,7 @@ export class MessageListComponent implements OnInit {
       .pipe(
         catchError(error => {
           console.error('Erreur lors de la récupération des messages', error);
-          // Gérer l'erreur (optionnel : afficher un message à l'utilisateur)
+          
           return of({ content: [], totalElements: 0 });
         }),
         finalize(() => {
