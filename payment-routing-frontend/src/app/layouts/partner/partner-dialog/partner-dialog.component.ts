@@ -87,7 +87,7 @@ export class PartnerDialogComponent implements OnInit {
       const partnerData: Partner = this.partnerForm.value;
 
       if (this.isEditMode && this.editData?.id) {
-        // Update existing partner
+       
         partnerData.id = this.editData.id;
         this._partnerService.updatePartner(partnerData).subscribe({
           next: (updatedPartner) => {
@@ -95,18 +95,18 @@ export class PartnerDialogComponent implements OnInit {
           },
           error: (error) => {
             console.error('Erreur lors de la mise à jour du partenaire', error);
-            // Optionally show error message to user
+            
           }
         });
       } else {
-        // Add new partner
+        
         this._partnerService.addPartner(partnerData).subscribe({
           next: (newPartner) => {
             this.dialogRef.close(newPartner);
           },
           error: (error) => {
             console.error('Erreur lors de l\'ajout du partenaire', error);
-            // Optionally show error message to user
+           
           }
         });
       }
